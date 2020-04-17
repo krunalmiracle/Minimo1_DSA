@@ -19,6 +19,7 @@ public class Caso {
     public Caso(){
 
     }
+
     //Creando un caso con todos los campos
     public Caso( String idCaso,String nombre, String apellidos, String genero, String correo, String direccion, Date fechaNacimiento,Date fechaInforme, String nivelRiesgo, String classificacion, int telefono) {
         this.fechaInforme = fechaInforme;

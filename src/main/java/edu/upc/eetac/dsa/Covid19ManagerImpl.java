@@ -105,9 +105,18 @@ public class Covid19ManagerImpl implements Covid19Manager {
     }
 
     @Override
-    public List<Brote> getListaBroteClassificado(String classificacion) {
-        //TODO: FINISH THIS UP!
-        return null;
+    public List<Caso> getListaCasosClassificadoBrota(String IdBrote, String classificacion) {
+        List<Caso> listaClassificadaCasos = new LinkedList<>();
+        Brote brote = getBrote(IdBrote);
+        if(brote ==null){return null;}
+        //We have found the brote but it doesn't contain casos
+        int nums = brote.getNumCasos();
+        if(nums==0){return null;}
+        listaClassificadaCasos = brote.getListaCasos();
+        //Now we can classify and order it!
+        //TODO: ACTUALLY CLASSIFY THE ABOVE CASE LIST! comfirmado > sospechoso > no caso
+
+        return listaClassificadaCasos;
     }
     ////////////////////EXTRAS///////////
     @Override
