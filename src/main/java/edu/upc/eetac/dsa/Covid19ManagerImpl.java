@@ -66,7 +66,7 @@ public class Covid19ManagerImpl implements Covid19Manager {
         }
     }
     @Override
-    public List<Brote> getListaCasos() {
+    public List<Brote> getListaBrote() {
         List<Brote> result = null;
         if(this.diccionarioBrote.size() !=0){
             result = new LinkedList<>(this.diccionarioBrote.values());
@@ -106,9 +106,14 @@ public class Covid19ManagerImpl implements Covid19Manager {
 
     @Override
     public List<Brote> getListaBroteClassificado(String classificacion) {
+        //TODO: FINISH THIS UP!
         return null;
     }
     ////////////////////EXTRAS///////////
+    @Override
+    public Brote getBrote(String IdBrote){
+        return diccionarioBrote.get(IdBrote);
+    }
     @Override
     public int numBrotes(){return this.diccionarioBrote.size();
     }

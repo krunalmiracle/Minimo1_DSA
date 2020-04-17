@@ -37,6 +37,7 @@ public class Covid19ManagerImplTest {
         Date dataInforme = new Date(2020,04,12,05,10,10);
         //Caso( String idCaso,String nombre, String apellidos, String genero, String correo, String direccion, Date fechaNacimiento,Date fechaInforme, String nivelRiesgo, String classificacion, int telefono)
         listaCasos.add(new Caso("001","Midoriya","izuku","H","midoriya@ua.com","Musutafu, Japan", dataNacimiento,dataInforme,"medio","sospechoso",993355));
+        listaCasos.add(new Caso("002","Uraraka","Ochako","F","uraraka@ua.com","Musutafu, Japan", dataNacimiento,dataInforme,"alto","confirmado",882244));
     }
     //Tests
     //Metodo Test para crear un nuevo brote
@@ -50,7 +51,24 @@ public class Covid19ManagerImplTest {
         //We expect now 1 brotes
         Assert.assertEquals(1, this.manager.numBrotes());
     }
-
+    //Tests
+    //Metodo Test para añadir un caso sobre brote existente
+    @Test
+    public void añadirCasoBroteTest(){
+        //Añadimos Brote de prueba
+        brote = new Brote("001","SARS");
+        manager.añadirBrote(brote);
+        //Initial Test, casos intiiales en brote Sars = 0
+        Assert.assertEquals(0, this.manager.getBrote("001").getNumCasos());
+        //Now we will add 1 case
+        this.manager.añadirCasoBrote("001",listaCasos.get(0));
+        //We expect now 1 brotes
+        Assert.assertEquals(1, this.manager.getBrote("001").getNumCasos());
+        //Now we will add second case
+        this.manager.añadirCasoBrote("001",listaCasos.get(1));
+        //We expect now 2 brotes
+        Assert.assertEquals(2, this.manager.getBrote("001").getNumCasos());
+    }
     @After
     public void tearDown() throws Exception {
         manager.liberarRecursos();

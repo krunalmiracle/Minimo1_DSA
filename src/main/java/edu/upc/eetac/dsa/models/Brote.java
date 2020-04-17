@@ -16,6 +16,17 @@ public class Brote {
         this.broteNombre = nombreBrote;
         this.listaCasos = listaCasos;
     }
+    public Brote(String idBrote,String nombreBrote){
+        this.idBrote = idBrote;
+        this.broteNombre = nombreBrote;
+        this.listaCasos = new LinkedList<>();
+    }
+    public Brote(String idBrote,String nombreBrote,Caso caso){
+        this.idBrote = idBrote;
+        this.broteNombre = nombreBrote;
+        this.listaCasos = new LinkedList<>();
+        this.listaCasos.add(caso);
+    }
     public int añadirCaso(Caso caso){
         try{
             this.listaCasos.add(caso);
@@ -45,6 +56,9 @@ public class Brote {
         this.listaCasos = listaCasos;
     }
 
+    public int getNumCasos(){
+        return this.listaCasos.size();
+    }
     public String getIdBrote() {
         return idBrote;
     }
