@@ -1,3 +1,4 @@
+package edu.upc.eetac.dsa.services;
 
 import edu.upc.eetac.dsa.Covid19Manager;
 import edu.upc.eetac.dsa.Covid19ManagerImpl;
@@ -20,7 +21,7 @@ import java.util.List;
 
 //Models or Element Entity
 //Swagger Imports
-@Api(value = "/users", description = "Endpoint to User Service")
+@Api(value = "/covid19", description = "Endpoint to User Service")
 @Path("/Covid19Service")
 public class Covid19Service {
     static final Logger logger = Logger.getLogger(Covid19Service.class);
@@ -89,7 +90,7 @@ public class Covid19Service {
     @PUT
     @ApiOperation(value = "Adds a Game object to user", notes = "Adds an existing Game Object to user")
     @ApiResponses(value = {
-            @ApiResponse(code = 201, message = "Successful", response=User.class),
+            @ApiResponse(code = 201, message = "Successful", response=Brote.class),
             @ApiResponse(code = 500, message = "Validation Error"),
             @ApiResponse(code = 404, message = "User/GameObject Not found Error")
     })
