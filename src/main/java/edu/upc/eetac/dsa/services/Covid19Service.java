@@ -18,7 +18,7 @@ import java.util.List;
 //Models or Element Entity
 //Swagger Imports
 @Api(value = "/users", description = "Endpoint to User Service")
-@Path("/XService")
-public class XService {
-
+@Path("/Covid19Service")
+public class Covid19Service {
+    //TODO: LATER IMPLEMENT THE SERVICE ENDPOINTS
 }
