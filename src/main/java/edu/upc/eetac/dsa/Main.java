@@ -32,7 +32,7 @@ public class Main {
         BeanConfig beanConfig = new BeanConfig();
 
         beanConfig.setHost("localhost:8080");
-        beanConfig.setBasePath("/Minimo1");
+        beanConfig.setBasePath("/minimo1");
         beanConfig.setContact("krunal.ratan.badsiwal@estudiantat.upc.edu");
         beanConfig.setDescription("REST API for XY Manager");
         beanConfig.setLicenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html");
@@ -70,7 +70,7 @@ public class Main {
         //   + "%s application.wadl\nHit enter to stop it...", BASE_URI));
         //Formatting BASE_URI FOR SWAGGER
         String swagger_uri = BASE_URI;
-        String target = "Minimo1";
+        String target = "minimo1";
         String replacement = "swagger3";
         swagger_uri = swagger_uri.replace(target, replacement);
         System.out.println(String.format("RestApi Started at " + "%s\nHit enter to stop it...", swagger_uri));

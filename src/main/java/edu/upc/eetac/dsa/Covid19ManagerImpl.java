@@ -7,6 +7,7 @@ import org.apache.log4j.Logger;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
 public class Covid19ManagerImpl implements Covid19Manager {
     private static Covid19Manager instance;
@@ -105,7 +106,7 @@ public class Covid19ManagerImpl implements Covid19Manager {
     }
 
     @Override
-    public List<Caso> getListaCasosClassificadoBrota(String IdBrote, String classificacion) {
+    public List<Caso> getListaCasosClassificadoBrota(String IdBrote) {
         List<Caso> listaClassificadaCasos = new LinkedList<>();
         Brote brote = getBrote(IdBrote);
         if(brote ==null){return null;}
@@ -115,7 +116,6 @@ public class Covid19ManagerImpl implements Covid19Manager {
         listaClassificadaCasos = brote.getListaCasos();
         //Now we can classify and order it!
         //TODO: ACTUALLY CLASSIFY THE ABOVE CASE LIST! comfirmado > sospechoso > no caso
-
         return listaClassificadaCasos;
     }
     ////////////////////EXTRAS///////////
@@ -125,6 +125,18 @@ public class Covid19ManagerImpl implements Covid19Manager {
     }
     @Override
     public int numBrotes(){return this.diccionarioBrote.size();
+    }
+    //Generate Id
+    @Override
+    public String generateId(){
+        String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        StringBuilder salt = new StringBuilder();
+        Random rnd = new Random();
+        while (salt.length() < 3) { // length of the random generated ID
+            int index = (int) (rnd.nextFloat() * SALTCHARS.length());
+            salt.append(SALTCHARS.charAt(index));
+        }
+        return salt.toString();
     }
     //Liberar Recursos
     @Override

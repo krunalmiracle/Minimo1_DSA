@@ -14,8 +14,9 @@ public interface Covid19Manager {
     //Añadir un caso sobre un brote
     int añadirCasoBrote(String idBrote, Caso caso);
     //Listado de casos de un determinado brote ordenado por classificación (confirmado,sospechoso y no caso)
-    List<Caso> getListaCasosClassificadoBrota(String IdBrote,String classificacion);
+    List<Caso> getListaCasosClassificadoBrota(String IdBrote);
     void liberarRecursos();
     int numBrotes();
+    String generateId();
     Brote getBrote(String IdBrote);
 }
